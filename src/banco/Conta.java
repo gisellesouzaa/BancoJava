@@ -27,4 +27,8 @@ public class Conta {
 		saldo = saldo - valor;
 	}
 
+	void sacar(double valor, double taxaSaque) {
+		sacar(valor + taxaSaque);
+	}
+
 }
