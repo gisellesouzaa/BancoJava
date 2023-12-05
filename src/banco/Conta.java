@@ -9,6 +9,9 @@ public class Conta {
 	int numero;
 	double saldo;
 	
+	Conta(){
+	}
+	
 	Conta(Pessoa titular, int agencia, int numero){
 		Objects.requireNonNull(titular); //Titular não pode ser nulo
 		this.titular = titular;
