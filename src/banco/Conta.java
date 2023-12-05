@@ -1,11 +1,20 @@
 package banco;
 
+import java.util.Objects;
+
 public class Conta {
 	
 	Pessoa titular;
 	int agencia;
 	int numero;
 	double saldo;
+	
+	Conta(Pessoa titular, int agencia, int numero){
+		Objects.requireNonNull(titular); //Titular não pode ser nulo
+		this.titular = titular;
+		this.agencia = agencia;
+        this.numero = numero;
+	}
 	
 	void depositar(double valor) {
 		if (valor <= 0) {
