@@ -14,6 +14,8 @@ public class Principal {
 		minhaConta.numero = 987;
 		minhaConta.saldo = 15_000;
 		
+		minhaConta.depositar(5_000);
+		
 		System.out.println("Titular: " + minhaConta.titular.nome);
 		System.out.println("Saldo: " + minhaConta.saldo);
 

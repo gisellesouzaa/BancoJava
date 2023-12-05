@@ -6,5 +6,9 @@ public class Conta {
 	int agencia;
 	int numero;
 	double saldo;
+	
+	void depositar(double valor) {
+		saldo = saldo + valor;
+	}
 
 }
