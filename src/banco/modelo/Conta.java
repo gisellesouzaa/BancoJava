@@ -2,7 +2,7 @@ package banco.modelo;
 
 import java.util.Objects;
 
-public class Conta {
+public abstract class Conta {
 	
 	private Pessoa titular;
 	private int agencia;
