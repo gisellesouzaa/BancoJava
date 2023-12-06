@@ -45,5 +45,9 @@ public class Pessoa {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", documento=" + documento + ", tipo=" + tipo + "]";
+	}	
 	
 }

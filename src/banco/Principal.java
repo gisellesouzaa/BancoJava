@@ -36,6 +36,9 @@ public class Principal {
 		titular2.setNome("Gabriela Mistral"); 
 		titular2.setDocumento("12312312312");
 		
+		//Acessando informações toString
+		System.out.println("toString: " + titular2.toString()); //Também funciona sem o '.toString()'
+		
 		//Instanciando Contas
 		ContaInvestimento minhaConta = new ContaInvestimento(titular1, 0123, 987);		
 		try {
