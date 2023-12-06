@@ -17,6 +17,7 @@ public class Principal {
 		Pessoa titular1 = new Pessoa();
 		titular1.setNome("Giselle Souza"); 
 		titular1.setDocumento("12312312311");
+		titular1.setRendimentoAnual(Double.valueOf(15_000d));
 		
 		Pessoa titular2 = new Pessoa();
 		titular2.setNome("Gabriela Mistral"); 

@@ -4,6 +4,7 @@ public class Pessoa {
 	
 	private String nome;
 	private String documento;
+	private Double rendimentoAnual;
 	
 	public String getNome() {
 		return nome;
@@ -17,7 +18,12 @@ public class Pessoa {
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
-	
+	public Double getRendimentoAnual() {
+		return rendimentoAnual;
+	}
+	public void setRendimentoAnual(Double rendimentoAnual) {
+		this.rendimentoAnual = rendimentoAnual;
+	}
 	
 	
 }
