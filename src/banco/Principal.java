@@ -5,6 +5,7 @@ import banco.modelo.ContaEspecial;
 import banco.modelo.ContaInvestimento;
 import banco.modelo.Pessoa;
 import banco.modelo.atm.CaixaEletronico;
+import banco.modelo.excecao.SaldoInsuficienteException;
 import banco.modelo.pagamento.Boleto;
 import banco.modelo.pagamento.Holerite;
 
@@ -35,7 +36,7 @@ public class Principal {
 		//Tratando exceptions
 		try {
 		minhaConta.sacar(10_000 + 50);
-		} catch (IllegalStateException e) {
+		} catch (SaldoInsuficienteException e) {
 			System.out.println("Erro ao executar operação na conta: " + e.getMessage());
 		}
 		
@@ -54,7 +55,7 @@ public class Principal {
         Holerite salarioFuncionario = new Holerite(titular2, 60, 5);
         caixaEletronico.pagar(salarioFuncionario, minhaConta);
         salarioFuncionario.imprimirRecibo();
-		} catch (IllegalStateException e) {
+		} catch (SaldoInsuficienteException e) {
 			System.out.println("Erro ao executar operação na conta: " + e.getMessage());
 		}
 		
@@ -63,7 +64,7 @@ public class Principal {
         try {
 		caixaEletronico.pagar(boletoEscola, minhaConta);
         caixaEletronico.estornarPagamento(boletoEscola, minhaConta);
-        } catch (IllegalStateException e) {
+        } catch (SaldoInsuficienteException e) {
 			System.out.println("Erro ao executar operação na conta: " + e.getMessage());
 		}
       

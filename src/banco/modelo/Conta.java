@@ -2,6 +2,8 @@ package banco.modelo;
 
 import java.util.Objects;
 
+import banco.modelo.excecao.SaldoInsuficienteException;
+
 public abstract class Conta {
 	
 	private Pessoa titular;
@@ -33,7 +35,7 @@ public abstract class Conta {
 		}
 		
 		if (saldo - valor < 0) {
-			throw new IllegalStateException("Saldo insuficiente");
+			throw new SaldoInsuficienteException("Saldo insuficiente");
 		}
 			
 		saldo = saldo - valor;
