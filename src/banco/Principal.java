@@ -29,7 +29,7 @@ public class Principal {
 		caixaEletronico.imprimirSaldo(minhaConta);
 		caixaEletronico.imprimirSaldo(suaConta);
 		
-		Conta conta = minhaConta; 
+		Conta conta = minhaConta; // Upcasting
 		conta.debitarTarifaMensal();
 		
 /*		System.out.println("Titular: " + minhaConta.getTitular().getNome());
