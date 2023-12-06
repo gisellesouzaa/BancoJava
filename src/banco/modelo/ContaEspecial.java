@@ -8,6 +8,11 @@ public class ContaEspecial extends Conta {
 		super(titular, agencia, numero);
 		this.valorLimite = valorLimite;
 	}
+	
+	@Override
+	public double getSaldoDisponivel() {
+		return getSaldo() + getValorLimite();
+	}
 
 	public double getValorLimite() {
 		return valorLimite;
@@ -17,5 +22,6 @@ public class ContaEspecial extends Conta {
 		this.valorLimite = valorLimite;
 	}
 	
+
 	
 }

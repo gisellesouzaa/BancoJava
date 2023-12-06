@@ -70,5 +70,9 @@ public class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
+	
+	public double getSaldoDisponivel() {
+		return getSaldo();
+	}
 
 }
