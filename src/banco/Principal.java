@@ -22,12 +22,23 @@ public class Principal {
 		titular2.setDocumento("12312312312");
 		
 		//Instanciando Contas
-		ContaInvestimento minhaConta = new ContaInvestimento(titular1, 0123, 987);			
-		minhaConta.depositar(15_000);
-		minhaConta.sacar(10_000 + 50);
+		ContaInvestimento minhaConta = new ContaInvestimento(titular1, 0123, 987);		
+		try {
+		minhaConta.depositar(0);
 		minhaConta.creditarRendimento(5);
+		} catch (IllegalArgumentException e) {
+			System.out.println("Erro ao executar operação: " + e.getMessage());
+		}
 		
-		ContaEspecial suaConta = new ContaEspecial(titular2, 0345, 988, 5_000);
+		ContaEspecial suaConta = new ContaEspecial(titular2, 0345, 988, 0);
+
+		//Tratando exceptions
+		try {
+		minhaConta.sacar(10_000 + 50);
+		} catch (IllegalStateException e) {
+			System.out.println("Erro ao executar operação na conta: " + e.getMessage());
+		}
+		
 
 		//Caixa Eletronico
 		CaixaEletronico caixaEletronico = new CaixaEletronico();
@@ -36,16 +47,26 @@ public class Principal {
 		
 		// Upcasting
 		Conta conta = minhaConta; 
+		try {
 		conta.debitarTarifaMensal();
 		
 		//Documentos pagáveis
         Holerite salarioFuncionario = new Holerite(titular2, 60, 5);
         caixaEletronico.pagar(salarioFuncionario, minhaConta);
         salarioFuncionario.imprimirRecibo();
-        
+		} catch (IllegalStateException e) {
+			System.out.println("Erro ao executar operação na conta: " + e.getMessage());
+		}
+		
         Boleto boletoEscola = new Boleto(titular2, 100);
+        
+        try {
 		caixaEletronico.pagar(boletoEscola, minhaConta);
         caixaEletronico.estornarPagamento(boletoEscola, minhaConta);
+        } catch (IllegalStateException e) {
+			System.out.println("Erro ao executar operação na conta: " + e.getMessage());
+		}
+      
         boletoEscola.imprimirRecibo();
         
 /*		System.out.println("Titular: " + minhaConta.getTitular().getNome());
