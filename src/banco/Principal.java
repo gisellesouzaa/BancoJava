@@ -1,5 +1,7 @@
 package banco;
 
+import banco.modelo.Conta;
+import banco.modelo.Pessoa;
 
 public class Principal {
 
