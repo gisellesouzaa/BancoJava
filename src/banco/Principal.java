@@ -5,6 +5,7 @@ import banco.modelo.ContaEspecial;
 import banco.modelo.ContaInvestimento;
 import banco.modelo.Pessoa;
 import banco.modelo.atm.CaixaEletronico;
+import banco.modelo.enums.TipoPessoa;
 import banco.modelo.excecao.SaldoInsuficienteException;
 import banco.modelo.pagamento.Boleto;
 import banco.modelo.pagamento.Holerite;
@@ -23,6 +24,9 @@ public class Principal {
 		double rendimento = titular1.getRendimentoAnual();
 		System.out.println("Rendimento anual convertido para tipo primitivo(double): " + rendimento);
 
+		//Enum
+		titular1.setTipo(TipoPessoa.JURIDICA);
+		System.out.println("Tipo de Pessoa:" + titular1.getTipo());
 		
 		Pessoa titular2 = new Pessoa();
 		titular2.setNome("Gabriela Mistral"); 

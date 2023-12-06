@@ -1,10 +1,13 @@
 package banco.modelo;
 
+import banco.modelo.enums.TipoPessoa;
+
 public class Pessoa {
 	
 	private String nome;
 	private String documento;
 	private Double rendimentoAnual;
+	private TipoPessoa tipo = TipoPessoa.FISICA;
 	
 	public String getNome() {
 		return nome;
@@ -23,6 +26,12 @@ public class Pessoa {
 	}
 	public void setRendimentoAnual(Double rendimentoAnual) {
 		this.rendimentoAnual = rendimentoAnual;
+	}
+	public TipoPessoa getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoPessoa tipo) {
+		this.tipo = tipo;
 	}
 	
 	
