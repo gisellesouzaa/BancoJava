@@ -6,9 +6,19 @@ public class ContaInvestimento extends Conta {
 		super(titular, agencia, numero);
 	}
 
+	@Override
+	public void debitarTarifaMensal() {
+		if (getSaldo() < 10_000) {
+			sacar(30);
+		}
+		
+	}
+
 	public void creditarRendimento(double percentualJuros) {
 		double valorRendimentos = getSaldo() * percentualJuros/100;
         depositar(valorRendimentos);
     }
+
+
 	
 }

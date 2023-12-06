@@ -39,9 +39,11 @@ public abstract class Conta {
 		saldo = saldo - valor;
 	}
 
-	void sacar(double valor, double taxaSaque) {
+	public void sacar(double valor, double taxaSaque) {
 		sacar(valor + taxaSaque);
 	}
+	
+	public abstract void debitarTarifaMensal();
 
 	public Pessoa getTitular() {
 		return titular;

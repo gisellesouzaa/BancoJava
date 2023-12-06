@@ -1,5 +1,6 @@
 package banco;
 
+import banco.modelo.Conta;
 import banco.modelo.ContaEspecial;
 import banco.modelo.ContaInvestimento;
 import banco.modelo.Pessoa;
@@ -16,7 +17,7 @@ public class Principal {
 		Pessoa titular2 = new Pessoa();
 		titular2.setNome("Gabriela Mistral"); 
 		titular2.setDocumento("12312312312");
-		
+				
 		ContaInvestimento minhaConta = new ContaInvestimento(titular1, 0123, 987);			
 		minhaConta.depositar(15_000);
 		minhaConta.sacar(10_000 + 50);
@@ -24,10 +25,12 @@ public class Principal {
 		
 		ContaEspecial suaConta = new ContaEspecial(titular2, 0345, 988, 5_000);
 
-
 		CaixaEletronico caixaEletronico = new CaixaEletronico();
 		caixaEletronico.imprimirSaldo(minhaConta);
 		caixaEletronico.imprimirSaldo(suaConta);
+		
+		Conta conta = minhaConta; 
+		conta.debitarTarifaMensal();
 		
 /*		System.out.println("Titular: " + minhaConta.getTitular().getNome());
 		System.out.println("Saldo: " + minhaConta.getSaldoDisponivel());
