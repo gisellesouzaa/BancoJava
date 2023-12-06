@@ -38,18 +38,15 @@ public class Principal {
 		Conta conta = minhaConta; 
 		conta.debitarTarifaMensal();
 		
-		//Documentos pagaveis
+		//Documentos pagáveis
         Holerite salarioFuncionario = new Holerite(titular2, 60, 5);
         caixaEletronico.pagar(salarioFuncionario, minhaConta);
-        System.out.println("Holerite pago: " + salarioFuncionario.estaPago());
+        salarioFuncionario.imprimirRecibo();
         
         Boleto boletoEscola = new Boleto(titular2, 100);
 		caixaEletronico.pagar(boletoEscola, minhaConta);
         caixaEletronico.estornarPagamento(boletoEscola, minhaConta);
-        System.out.println("Boleto pago: " + boletoEscola.estaPago());
-        
-
-        
+        boletoEscola.imprimirRecibo();
         
 /*		System.out.println("Titular: " + minhaConta.getTitular().getNome());
 		System.out.println("Saldo: " + minhaConta.getSaldoDisponivel());
