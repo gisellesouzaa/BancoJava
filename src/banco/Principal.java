@@ -1,6 +1,7 @@
 package banco;
 
 import banco.modelo.Conta;
+import banco.modelo.ContaInvestimento;
 import banco.modelo.Pessoa;
 
 public class Principal {
@@ -11,12 +12,13 @@ public class Principal {
 		titular1.setNome("Giselle Souza"); 
 		titular1.setDocumento("12312312311");
 		
-		Conta minhaConta = new Conta(titular1, 0123, 987);			
+		ContaInvestimento minhaConta = new ContaInvestimento(titular1, 0123, 987);			
 		minhaConta.depositar(15_000);
 		minhaConta.sacar(10_000 + 50);
+		minhaConta.creditarRendimento(5);
 		
 		Conta suaConta = new Conta();
-		
+		 
 		System.out.println("Titular: " + minhaConta.getTitular().getNome());
 		System.out.println("Saldo: " + minhaConta.getSaldo());
 		
