@@ -1,5 +1,7 @@
 package banco.modelo;
 
+import java.time.LocalDateTime;
+
 import banco.modelo.enums.TipoPessoa;
 
 public class Pessoa {
@@ -8,6 +10,7 @@ public class Pessoa {
 	private String documento;
 	private Double rendimentoAnual;
 	private TipoPessoa tipo = TipoPessoa.FISICA;
+	private LocalDateTime dataUltimaAtualizacao = LocalDateTime.now();
 	
 	public String getNome() {
 		return nome;
@@ -33,6 +36,13 @@ public class Pessoa {
 	public void setTipo(TipoPessoa tipo) {
 		this.tipo = tipo;
 	}
+	public LocalDateTime getDataUltimaAtualizacao() {
+		return dataUltimaAtualizacao;
+	}
+	public void setDataUltimaAtualizacao(LocalDateTime dataUltimaAtualizacao) {
+		this.dataUltimaAtualizacao = dataUltimaAtualizacao;
+	}
+	
 	
 	
 }

@@ -1,5 +1,7 @@
 package banco;
 
+import java.time.LocalDateTime;
+
 import banco.modelo.Conta;
 import banco.modelo.ContaEspecial;
 import banco.modelo.ContaInvestimento;
@@ -27,6 +29,11 @@ public class Principal {
 		//Enum
 		titular1.setTipo(TipoPessoa.JURIDICA);
 		System.out.println("Tipo de Pessoa:" + titular1.getTipo());
+		
+		//Data e Hora
+		titular1.setDataUltimaAtualizacao(LocalDateTime.parse("2023-12-06T10:00"));
+		System.out.println("Última atualização: " + titular1.getDataUltimaAtualizacao());
+
 		
 		Pessoa titular2 = new Pessoa();
 		titular2.setNome("Gabriela Mistral"); 
