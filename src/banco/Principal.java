@@ -3,6 +3,7 @@ package banco;
 import banco.modelo.ContaEspecial;
 import banco.modelo.ContaInvestimento;
 import banco.modelo.Pessoa;
+import banco.modelo.atm.CaixaEletronico;
 
 public class Principal {
 
@@ -23,11 +24,17 @@ public class Principal {
 		
 		ContaEspecial suaConta = new ContaEspecial(titular2, 0345, 988, 5_000);
 
-		System.out.println("Titular: " + minhaConta.getTitular().getNome());
+
+		CaixaEletronico caixaEletronico = new CaixaEletronico();
+		caixaEletronico.imprimirSaldo(minhaConta);
+		caixaEletronico.imprimirSaldo(suaConta);
+		
+/*		System.out.println("Titular: " + minhaConta.getTitular().getNome());
 		System.out.println("Saldo: " + minhaConta.getSaldoDisponivel());
 		
 		System.out.println("Titular: " + suaConta.getTitular().getNome());
 		System.out.println("Saldo: " + suaConta.getSaldoDisponivel());
+*/	
 		
 	}
 
