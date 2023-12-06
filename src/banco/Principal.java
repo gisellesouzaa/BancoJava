@@ -1,7 +1,5 @@
 package banco;
 
-import java.math.BigDecimal;
-
 import banco.modelo.Conta;
 import banco.modelo.ContaEspecial;
 import banco.modelo.ContaInvestimento;
@@ -41,8 +39,16 @@ public class Principal {
 		conta.debitarTarifaMensal();
 		
 		//Documentos pagaveis
-		Boleto boletoEscola = new Boleto(titular2, 1000);
-        Holerite salarioFuncionario = new Holerite(titular2, 60, 160);
+        Holerite salarioFuncionario = new Holerite(titular2, 60, 5);
+        caixaEletronico.pagar(salarioFuncionario, minhaConta);
+        System.out.println("Holerite pago: " + salarioFuncionario.estaPago());
+        
+        Boleto boletoEscola = new Boleto(titular2, 100);
+		caixaEletronico.pagar(boletoEscola, minhaConta);
+        caixaEletronico.estornarPagamento(boletoEscola, minhaConta);
+        System.out.println("Boleto pago: " + boletoEscola.estaPago());
+        
+
         
         
 /*		System.out.println("Titular: " + minhaConta.getTitular().getNome());

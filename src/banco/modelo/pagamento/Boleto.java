@@ -33,7 +33,6 @@ public class Boleto implements DocumentoPagavel, DocumentoEstornavel{
 	@Override
 	public void estornarPagamento() {
         pago = false;		
-		
 	}
 	
 	
