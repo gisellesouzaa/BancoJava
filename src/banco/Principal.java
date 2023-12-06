@@ -17,7 +17,12 @@ public class Principal {
 		Pessoa titular1 = new Pessoa();
 		titular1.setNome("Giselle Souza"); 
 		titular1.setDocumento("12312312311");
-		titular1.setRendimentoAnual(Double.valueOf(15_000d));
+		
+		//Autoboxing e unboxing 
+		titular1.setRendimentoAnual(15_000d);
+		double rendimento = titular1.getRendimentoAnual();
+		System.out.println("Rendimento anual convertido para tipo primitivo(double): " + rendimento);
+
 		
 		Pessoa titular2 = new Pessoa();
 		titular2.setNome("Gabriela Mistral"); 
