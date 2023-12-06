@@ -1,5 +1,6 @@
 package banco.modelo;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import banco.modelo.enums.TipoPessoa;
@@ -8,7 +9,7 @@ public class Pessoa {
 	
 	private String nome;
 	private String documento;
-	private Double rendimentoAnual;
+	private BigDecimal rendimentoAnual;
 	private TipoPessoa tipo = TipoPessoa.FISICA;
 	private LocalDateTime dataUltimaAtualizacao = LocalDateTime.now();
 	
@@ -24,10 +25,10 @@ public class Pessoa {
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
-	public Double getRendimentoAnual() {
+	public BigDecimal getRendimentoAnual() {
 		return rendimentoAnual;
 	}
-	public void setRendimentoAnual(Double rendimentoAnual) {
+	public void setRendimentoAnual(BigDecimal rendimentoAnual) {
 		this.rendimentoAnual = rendimentoAnual;
 	}
 	public TipoPessoa getTipo() {

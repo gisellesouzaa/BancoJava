@@ -1,5 +1,6 @@
 package banco;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import banco.modelo.Conta;
@@ -20,11 +21,7 @@ public class Principal {
 		Pessoa titular1 = new Pessoa();
 		titular1.setNome("Giselle Souza"); 
 		titular1.setDocumento("12312312311");
-		
-		//Autoboxing e unboxing 
-		titular1.setRendimentoAnual(15_000d);
-		double rendimento = titular1.getRendimentoAnual();
-		System.out.println("Rendimento anual convertido para tipo primitivo(double): " + rendimento);
+		titular1.setRendimentoAnual(new BigDecimal("15000"));
 
 		//Enum
 		titular1.setTipo(TipoPessoa.JURIDICA);
@@ -42,17 +39,17 @@ public class Principal {
 		//Instanciando Contas
 		ContaInvestimento minhaConta = new ContaInvestimento(titular1, 0123, 987);		
 		try {
-		minhaConta.depositar(0);
-		minhaConta.creditarRendimento(5);
+		minhaConta.depositar(new BigDecimal("0"));
+		minhaConta.creditarRendimento(new BigDecimal("5"));
 		} catch (IllegalArgumentException e) {
 			System.out.println("Erro ao executar operação: " + e.getMessage());
 		}
 		
-		ContaEspecial suaConta = new ContaEspecial(titular2, 0345, 988, 0);
+		ContaEspecial suaConta = new ContaEspecial(titular2, 0345, 988, new BigDecimal("0"));
 
 		//Tratando exceptions
 		try {
-		minhaConta.sacar(10_000 + 50);
+		minhaConta.sacar(new BigDecimal("10000").add(new BigDecimal("50")));
 		} catch (SaldoInsuficienteException e) {
 			System.out.println("Erro ao executar operação na conta: " + e.getMessage());
 		}
@@ -69,14 +66,14 @@ public class Principal {
 		conta.debitarTarifaMensal();
 		
 		//Documentos pagáveis
-        Holerite salarioFuncionario = new Holerite(titular2, 60, 5);
+        Holerite salarioFuncionario = new Holerite(titular2, new BigDecimal("60"), 5);
         caixaEletronico.pagar(salarioFuncionario, minhaConta);
         salarioFuncionario.imprimirRecibo();
 		} catch (SaldoInsuficienteException e) {
 			System.out.println("Erro ao executar operação na conta: " + e.getMessage());
 		}
 		
-        Boleto boletoEscola = new Boleto(titular2, 100);
+        Boleto boletoEscola = new Boleto(titular2, new BigDecimal("100"));
         
         try {
 		caixaEletronico.pagar(boletoEscola, minhaConta);
