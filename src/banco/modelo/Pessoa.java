@@ -2,6 +2,7 @@ package banco.modelo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import banco.modelo.enums.TipoPessoa;
 
@@ -48,6 +49,23 @@ public class Pessoa {
 	@Override
 	public String toString() {
 		return "Pessoa [nome=" + nome + ", documento=" + documento + ", tipo=" + tipo + "]";
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(documento);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pessoa other = (Pessoa) obj; //Casting
+		return Objects.equals(documento, other.documento);
 	}	
+	
 	
 }
