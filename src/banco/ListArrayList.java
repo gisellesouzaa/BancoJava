@@ -37,7 +37,7 @@ public class ListArrayList {
 
 		// Metódo contains - verifica se um elemento específico está presente na lista com base no metodo equals
 		boolean existePessoa = arrayPessoas.contains(pessoa1);
-		System.out.println("Existe '" + pessoa1.getNome() + "' na lista? " + existePessoa);
+		System.out.println("\n Existe '" + pessoa1.getNome() + "' na lista? " + existePessoa);
 
 	}
 
