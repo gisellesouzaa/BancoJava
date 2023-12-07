@@ -14,6 +14,15 @@ public class Pessoa {
 	private TipoPessoa tipo = TipoPessoa.FISICA;
 	private LocalDateTime dataUltimaAtualizacao = LocalDateTime.now();
 	
+	public Pessoa() {
+	}
+
+	public Pessoa(String nome, String documento) {
+		super();
+		this.nome = nome;
+		this.documento = documento;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
