@@ -1,7 +1,6 @@
 package banco;
 
 import java.util.Comparator;
-import java.util.function.ToIntFunction;
 
 import banco.modelo.Banco;
 import banco.modelo.Conta;
@@ -12,14 +11,8 @@ public class InterfaceFuncional {
 		Banco banco = new Banco();
 		
 		  	// Função do tipo ToIntFunction(interface funcional)
-			// Tem o objetivo de obter os números das contas
-			ToIntFunction<Conta> function = (Conta conta) -> {
-				return conta.getNumero();
-			};
-
-			// Ordena a lista de contas
-			// O critério de ordenação é definido pelo Comparator(interface funcional), que utiliza a função anterior.
-			banco.getContas().sort(Comparator.comparingInt(function));
+			// Tem o objetivo de obter os números das contas e ordená-las com base no número
+			banco.getContas().sort(Comparator.comparingInt(conta -> conta.getNumero()));
 
 			//Percorrer as contas já ordenadas 
 			for (Conta conta : banco.getContas()) {
