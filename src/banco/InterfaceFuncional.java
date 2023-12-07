@@ -12,7 +12,7 @@ public class InterfaceFuncional {
 		
 		  	// Função do tipo ToIntFunction(interface funcional)
 			// Tem o objetivo de obter os números das contas e ordená-las com base no número
-			banco.getContas().sort(Comparator.comparingInt(conta -> conta.getNumero()));
+			banco.getContas().sort(Comparator.comparingInt(Conta::getNumero));
 
 			//Percorrer as contas já ordenadas 
 			for (Conta conta : banco.getContas()) {
