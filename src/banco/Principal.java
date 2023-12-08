@@ -3,6 +3,7 @@ package banco;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import banco.modelo.Banco;
 import banco.modelo.Conta;
 import banco.modelo.ContaEspecial;
 import banco.modelo.ContaInvestimento;
@@ -87,12 +88,27 @@ public class Principal {
       
         boletoEscola.imprimirRecibo();
         
-/*		System.out.println("Titular: " + minhaConta.getTitular().getNome());
-		System.out.println("Saldo: " + minhaConta.getSaldoDisponivel());
-		
-		System.out.println("Titular: " + suaConta.getTitular().getNome());
-		System.out.println("Saldo: " + suaConta.getSaldoDisponivel());
-*/	
+        //Optional
+        Banco banco = new Banco();
+
+        BigDecimal saldo = banco.buscar(123, 2222)
+        		.map(Conta::getSaldo)
+        		.orElse(BigDecimal.ZERO);
+        System.out.println(saldo);
+        
+        
+        //Sem Optional
+        Banco banco2 = new Banco();
+        Conta contaEncontrada2 = banco2.buscar2(123, 2222);
+        
+        if (contaEncontrada2 != null) {
+        	System.out.println(contaEncontrada2.getSaldo());
+        }
+
+        /* 
+        Conta contaEncontrada = banco.buscar(123, 123)
+        		.orElseThrow(() -> new RuntimeException("CONTA NÃO ENCONTRADA."));
+        System.out.println(contaEncontrada.getSaldo()); */
 		
 	}
 
