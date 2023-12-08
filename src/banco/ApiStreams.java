@@ -1,33 +1,49 @@
 package banco;
 
 import java.math.BigDecimal;
-import java.util.stream.Stream;
+import java.util.Comparator;
+import java.util.List;
 
 import banco.modelo.Banco;
 import banco.modelo.Conta;
+import banco.modelo.Pessoa;
 
 public class ApiStreams {
 
 	public static void main(String[] args) {
 		Banco banco = new Banco();
 		
-		//Depositar 10 reais nas constas e imprimir contas com novos saldos
-		Stream<Conta> stream1 = banco.getContas().stream();
+	    List<Pessoa> titulares = banco.getContas().stream()
+                .map(Conta::getTitular)
+                .distinct()
+                .toList();
+        System.out.printf("Titulares:" + titulares);
+        
+        System.out.println("\n-------------------------------------------------------");
 
-		stream1.forEach(conta -> {
-			conta.depositar(new BigDecimal("10"));
-			System.out.println(conta.getAgencia() + "/" + conta.getNumero() + " = " + conta.getSaldo());
-		});
+        BigDecimal saltoTotal = banco.getContas().stream()
+        		.map(Conta::getSaldo)
+        		.reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.printf("Salto total de todas as contas no projeto:" + saltoTotal);
+
+        System.out.println("\n-------------------------------------------------------");
+
+        banco.getContas().stream()
+                .filter(conta -> conta.getSaldo().compareTo(new BigDecimal("50")) > 0)
+                .filter(conta -> conta.getNumero() > 200)
+                .map(Conta::getTitular)
+                .distinct() //Base no equals
+                .forEach(System.out::println);
+
+        System.out.println("-------------------------------------------------------");
+
 		
-		//Filtrar contas com saldo acima de R$ 500
-		Stream<Conta> stream2 = banco.getContas().stream()
-				.filter(conta -> conta.getSaldo().compareTo(new BigDecimal("500")) > 0);
-
-		//Filtrar por contas com numero maior que 300
-		Stream<Conta> stream3 = stream2.filter(conta -> conta.getNumero() > 8000);
-		stream3.forEach(conta -> {
+		banco.getContas().stream()
+				.filter(conta -> conta.getSaldo().compareTo(new BigDecimal("10")) > 0)
+				.filter(conta -> conta.getNumero() > 100)
+				.sorted(Comparator.comparingInt(Conta::getNumero))
+				.forEach(conta -> {
 			System.out.println(conta.getAgencia() + "/" + conta.getNumero() + " = " + conta.getSaldo());
-
 		});
 	}
 
